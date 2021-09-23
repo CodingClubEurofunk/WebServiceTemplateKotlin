@@ -45,9 +45,10 @@ class ServiceTest {
     }
 
     private fun checkData(id: String, firstName: String, lastName: String) {
-        val entity = userService.findById(id = id)
-        assert(entity != null)
-        assert(entity?.firstName == firstName)
-        assert(entity?.lastName == lastName)
+        val model = userService.findById(id = id)
+        assert(model != null)
+        assert(model?.id?.isNotEmpty() == true)
+        assert(model?.firstName == firstName)
+        assert(model?.lastName == lastName)
     }
 }
